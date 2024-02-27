@@ -1,0 +1,19 @@
+.theme-bg-light{
+  background-color: #EEF7FF !important;
+ color: black !important;
+}
+.theme-bg-dark{
+  background-color: #080F25 !important;
+  color: rgb(235, 234, 234) !important;
+}
+.navbar-brand {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.nav-link{
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.light-shadow{
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 6px 7px -3px !important
+}

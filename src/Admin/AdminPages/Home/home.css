@@ -1,0 +1,77 @@
+.tick {
+    font-size: 15px !important;
+}
+
+.dashboard-text {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.dashboard-text-small {
+    margin: 0;
+    font-size: 14px
+}
+
+.export-btn {
+    border: none;
+    color: #fff;
+    text-align: center;
+    background-color: #212c4d;
+    border-radius: 4px;
+    padding: 8px;
+    font-size:12px;
+    line-height: 1.167em;
+    text-decoration: none;
+    transition: background-color .3s, color .3s;
+}
+
+.export-btn:hover {
+    background-color: #6c72ff;
+}
+
+.create-btn:hover {
+    background-color: #212c4d;
+}
+
+.create-btn {
+    border: none;
+
+    color: #fff;
+    text-align: center;
+    background-color: #6c72ff;
+    border-radius: 4px;
+    justify-content: center;
+    padding: 8px;
+    font-size:12px;
+    font-weight: 500;
+    line-height: 1.167em;
+    text-decoration: none;
+    transition: background-color .3s, color .3s;
+}
+.percent-box{
+    color: #14ca74;
+    border-radius: 3px;
+    padding: 5px 6px;
+    font-size:
+    12px;
+    background-color: rgba(5, 193, 104, .2);
+    border-color: rgba(5, 193, 104, .2);
+}
+.select-box-barchart{
+   
+    color: #aeb9e1;
+    font-size:
+    12px;
+    background-color: #212c4d;
+    border: 1px solid #37446b;
+    border-radius: 4px;
+    padding: 8px;
+    transition: color .3s, border-color .3s;
+
+}
+.select-box-inner{
+    background-color: transparent;
+    color: inherit;
+    border: none;
+}

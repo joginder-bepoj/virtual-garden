@@ -1,0 +1,102 @@
+.garden-milestone{
+ max-height: 300px;
+ width: 100%;
+ border-radius: 25px;
+}
+.milestone-dark-bg-1{
+    color: #ffffff;
+}
+.milestone-light-bg-1{
+    color: black;
+}
+.milestone-dark-bg-2{
+    background-color: #272E48;
+    color: white;
+}
+.milestone-light-bg-2{
+    background-color: #D3E5F0;
+    color: black;
+}
+.milestone-user-pic>img{
+    margin-right: 15px;
+}
+.milestone-user-pic{
+    background-color:  white;
+    box-shadow: 0 7px 14px 0 rgba(65,69,88,.1),0 3px 6px 0 rgba(0,0,0,.07)!important;
+    width: fit-content;
+    color: black;
+    padding: 2px 30px 2px 5px;
+    border-radius: 25px;
+
+}
+.acordian-bg-dark{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: #161616;
+    padding: 15px 30px;
+    margin-top: 10px;
+    border-radius: 25px;
+}
+.acordian-bg-light{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: white;
+    box-shadow: 0 7px 14px 0 rgba(65,69,88,.1),0 3px 6px 0 rgba(0,0,0,.07)!important;
+
+    padding: 15px 30px;
+    margin-top: 10px;
+    border-radius: 25px;
+}
+.startnow-btn{
+   
+    box-shadow: 0 7px 14px 0 rgba(65,69,88,.1),0 3px 6px 0 rgba(0,0,0,.07)!important;
+    bottom: 10px;
+    background-color: white;
+    color: rgb(12, 12, 12);
+    border-radius: 20px;
+    margin: auto;
+    width :150px;
+    padding: 5px 17px 5px 2px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.startnow-btn:hover{
+    background-color:#8C9196;
+    color: black;
+}
+
+.child {
+    position: absolute;
+    margin-left: 10px
+    
+}
+.startnow-btn:hover .child{
+    -webkit-animation-duration: 1s;
+    animation-duration: .5s;
+    -webkit-animation-name: example;
+    animation-name: example;
+
+}
+.text-decoration-none{
+    text-decoration: none !important;
+}
+@keyframes example {
+    0% {
+       
+        margin-left: 0;
+    }
+    50% {
+        margin-right: -20px;
+    }
+    
+}
+.font-30{
+    font-size: 30px;
+}
+.font-20{
+    font-size: 20px;
+}
+

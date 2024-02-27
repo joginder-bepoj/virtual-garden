@@ -1,0 +1,37 @@
+/* Basic styles for the table */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+    font-size: 16px;
+    overflow: auto;
+}
+
+.responsive-table th,
+.responsive-table td {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: transparent !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .responsive-table {
+        font-size: 14px;
+    }
+
+    .responsive-table th,
+    .responsive-table td {
+        padding: 8px;
+    }
+}
+.status-text{
+    
+        background: rgb(13 219 53 / 21%);
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 8px;
+    
+}

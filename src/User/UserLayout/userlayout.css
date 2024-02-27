@@ -1,0 +1,44 @@
+:root{
+    --user_sidebar-dark-theme-color: #2F2F2F;
+    --user_main-dark-theme-color:#161616;
+
+    --user_sidebar-light-theme-color: #d3e5f0;
+    --user_main-light-theme-color: #eef7fc;
+
+        --falcon-box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+        --dark-theme-bg-color:#080F25 !important;
+        --dark-theme-text-color: rgb(180, 170, 170) !important;
+        --light-theme-bg-color: #EEF7FF !important;
+        --light-theme-text-color: black !important;  
+}
+.user_sidebar{
+    width: 100%px;
+    margin: auto;
+    position: fixed;
+    /* border-right: 1px solid ; */
+    overflow: auto;
+    height: 100vh
+}
+
+.user_sidebar-dark-theme{
+    background-color:var(--user_sidebar-dark-theme-color);
+    color: white;
+}
+.user_sidebar-light-theme{
+    background-color:var( --user_sidebar-light-theme-color);
+    color: black !important;
+}
+.user_main{
+     margin-left: 100px;
+     min-height: 100vh;
+     width: 100%;
+     /* padding: 10px; */
+}
+.user_main-dark-theme{
+    background-color:var( --dark-theme-bg-color);
+    color: white;
+}
+.user_main-light-theme{
+    background-color:var(--user_main-light-theme-color);
+    color: black;
+}

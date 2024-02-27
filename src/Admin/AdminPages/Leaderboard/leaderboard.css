@@ -1,0 +1,24 @@
+.rank-img{
+  height: 150px;
+}
+
+.first-place{
+  height: 90px;
+  width: 50px;
+  color: white;
+  background-color: rgb(147, 147, 191);
+}
+
+.second-place{
+  height: 70px;
+  width: 50px;
+  color: white;
+  background-color: rgb(100, 177, 109);
+}
+
+.third-place{
+  height: 50px;
+  color: white;
+  width: 50px;
+  background-color: rgb(143, 131, 91);
+}

@@ -1,0 +1,30 @@
+li{
+    list-style: none;
+}
+
+.li-hover {
+    cursor: pointer;
+    width: fit-content !important;
+    list-style: none;
+    position: relative
+  }
+  
+  .li-hover:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    margin-top: 8px;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform .4s ease-out
+  }
+  
+  .li-hover:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left
+  }
+ 

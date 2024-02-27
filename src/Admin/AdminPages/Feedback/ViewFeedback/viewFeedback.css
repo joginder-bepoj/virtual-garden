@@ -1,0 +1,110 @@
+ .chat-box-container {
+     border-radius: 20px !important;
+ }
+
+ .chat-box {
+     position: relative;
+
+ }
+
+ .chat-head {
+     background-color: rgb(107, 72, 247);
+     border-radius: 20px 20px 0 0;
+     padding: 15px 0px 8px 0px;
+     /* position: absolute; */
+     width: 100%;
+     z-index: 99;
+     top: 0;
+ }
+
+ .message-box {
+     padding-top: px;
+     max-height: 68vh;
+     overflow: auto;
+ }
+
+ .chat-bottom {
+     /* position: absolute; */
+     z-index: 99;
+     bottom: 0;
+     width: 100%;
+     background-color: rgb(107, 72, 247);
+     border-radius: 0 0 20px 20px;
+     padding: 5px 10px 5px 10px;
+     display: flex;
+     gap: 20px;
+ }
+
+ .chat-input {
+     width: 100%;
+     height: 35px;
+     border-radius: 25px;
+     border: none;
+ }
+
+ .chat-send-btn {
+     border: 1px solid green;
+     background-color: rgb(69, 134, 69);
+     border-radius: 50%;
+     height: 35px;
+     width: 35px;
+ }
+
+ .send-icon {
+     height: 20px;
+     width: 20px;
+ }
+
+ .user-msg {
+     color: white;
+     background-color: #404040;
+     border-radius: 0px 15px 15px 15px;
+ }
+
+ .admin-msg {
+     background-color: rgb(144, 199, 243);
+     border-radius: 15px 15px 0px 15px;
+     color: #404040;
+ }
+
+ .message-box {
+
+     scrollbar-width: thin;
+     /* Firefox */
+     scrollbar-color: #ddd #f5f5f5;
+     /* Firefox */
+
+     /* Webkit-based browsers (Chrome, Safari, Edge) */
+     &::-webkit-scrollbar {
+         width: 8px;
+         /* Width for vertical scrollbar */
+         height: 8px;
+         /* Height for horizontal scrollbar */
+     }
+
+     /* Vertical scrollbar (y-direction) */
+     &::-webkit-scrollbar-thumb:vertical {
+         background-color: #5a4ee2;
+         /* Color for vertical scrollbar thumb */
+         border-radius: 3px;
+     }
+
+     &::-webkit-scrollbar-track:vertical {
+         background-color: #f5f5f5;
+         /* Color for vertical scrollbar track */
+         border-radius: 3px;
+     }
+
+     /* Horizontal scrollbar (x-direction) */
+     &::-webkit-scrollbar-thumb:horizontal {
+         background-color: #5a4ee2;
+         /* Color for horizontal scrollbar thumb */
+         border-radius: 3px;
+     }
+
+     &::-webkit-scrollbar-track:horizontal {
+         background-color: #f5f5f5;
+         /* Color for horizontal scrollbar track */
+         border-radius: 3px;
+     }
+ }

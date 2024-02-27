@@ -1,0 +1,28 @@
+32 sqaures max and goals also
+check weekly 
+completed tree will grow 
+10 times grow a plant
+loose 1killo per week
+user can create 4 goals and then it becomes a milestones its per according to month
+goal setup => 1square of garden
+check everyday, weekly, monthly,
+
+if didn't login then send notification per week
+
+leader board 
+
+
+goals
+setup goals
+completed goals
+on going goals
+goals are clickable
+how many milestones are completed and due
+
+
+garden to create a new garden 
+and show all gardens
+
+
+achivements 10 milestones in a row
+

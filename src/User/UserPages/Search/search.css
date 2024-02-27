@@ -1,0 +1,44 @@
+.user-search-page-input{
+ background-color: #2F2F2F;
+ padding-left: 10px ;
+ border: none;
+color: white;
+
+ border-radius: 25px;
+}
+.go-button{
+ background-color: #2F2F2F;
+border: 1px solid #2F2F2F;
+color: white;
+border-radius: 25px;
+padding: 2px 20px;
+}
+.go-button:hover{
+ background-color: white;
+
+color: black;
+
+}
+.popularPlants-items{
+    background-color: #2F2F2F;
+    border: 1px solid #2F2F2F;
+    color: white;
+    border-radius: 25px;
+    padding: 2px 30px;
+    margin: 0;
+}
+.popularPlants-items:hover{
+    background-color: white;
+cursor: pointer;
+color: black;
+}
+
+
+.form-check-input:checked {
+    border-color: #2F2F2F    ; /* Change border color when checked */
+    outline: none;
+    background-color: #2F2F2F; /* Change background color when checked */
+}
+.form-check-input:focus{
+    box-shadow: none;
+}

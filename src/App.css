@@ -1,0 +1,15 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px;
+  font-size: 14px;
+  pointer-events: none;
+}

@@ -1,0 +1,232 @@
+/* Global CSS Start Here*/ 
+:root{
+  --themecolor:#0C5113;
+  --hovercolor:#F93535;
+  --textcolor:#000;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+.font16{
+  font-size: 16px;
+}
+.font18{
+  font-size: 18px;
+}
+.font20{
+  font-size: 20px;
+}
+.font22{
+  font-size: 22px;
+}
+.font24{
+  font-size: 24px;
+}
+.fw400{
+  font-weight: 400;
+}
+.fw500{
+  font-weight: 500;
+}
+.fw600{
+  font-weight: 600;
+}
+.fw700{
+  font-weight: 700;
+}
+.text-color{
+  color: var(--themecolor);
+}
+/* Global CSS End Here */
+/* Header sextion Start here */
+header{
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+}
+header .collapse .nav-item a{
+  color: #000 !important;
+  font-family: Helvetica;
+  font-size: 19px;
+  font-weight: 400;
+}
+.search-box{
+  border-radius: 6px;
+  background: #0C5113;
+  padding: 6px 10px;
+}
+.site-header.position-fixed {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background: #fff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.top-header{
+ background-image: url('./Assets/shape.png');
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+/* Header sextion Start here */
+.banner-sec,
+.plant{
+  background: #E9F5F5;
+}
+.right-box .banner-heading-1{
+  font-size: 55px;
+}
+.banner-sec .create-garden{
+  border-radius: 50px;
+  background: var(--themecolor);        
+}
+.banner-sec .create-garden:hover,
+.banner-sec .login-btn:hover{
+  color: #fff;
+  background: var(--hovercolor);        
+}
+.banner-sec .login-btn:hover{
+  border-color: var(--hovercolor);
+}
+.banner-sec .login-btn{
+  border-radius: 50px;
+  border: 2px solid var(--themecolor);
+  background: rgba(47, 77, 50, 0.00);
+  color: var(--themecolor);
+}
+/* Banner Section End */
+.about-heading{
+  font-size: 54px;
+}
+.about-paragrap{
+  color: #4C4848;
+}
+.discover-more:hover{
+  background: var(--hovercolor);
+}
+.discover-more{
+  letter-spacing: 2.16px;
+  border-radius: 50px;
+  background: #0C5113;
+}
+/* Plant Section Start Here */
+
+.plant .card {
+  background: #FFF;
+  box-shadow: 0px 2px 17px 0px rgba(0, 0, 0, 0.14);
+}
+
+.plant .card:hover .plants-name{
+color: var(--hovercolor);
+}
+
+.zoom-img img {
+  height: 280px;
+  object-fit: cover;
+  width: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.zoom-img {
+  height: auto;
+  overflow: hidden;
+}
+
+.zoom-img img:hover {
+  transform: scale(1.2);
+}
+
+.parahgrah-color{
+  color: #4C4848;
+}
+
+/* Table Section Start Here */
+table .theader {
+  background: var(--themecolor);
+}
+
+td.text-white.fw400.font15.ps-3.border-end {
+  width: 170px;
+}
+
+/* Footer Section Start Here */
+footer{
+  background: #000;
+}
+
+.footer-botom{
+  background-color: var(--themecolor);
+}
+
+.footer-botom p{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media (max-width: 992px){
+.navbar-collapse ul li a {
+  /* border-top: 1px solid #ddd; */
+  padding: 8px 15px !important;
+}
+
+.navbar-collapse {
+  position: absolute;
+  left: 0; 
+  z-index: 1;
+  right: 0;
+  top:117px;
+  background: #fff;
+  color: black;
+  width: 100%; 
+  padding: 0;
+}
+.navbar-collapse-bg{
+  background-color: #080F25 !important;
+  color: rgb(235, 234, 234) !important;
+
+}
+.navbar-toggler {
+  padding: 1px 4px;
+  box-shadow: none !important;
+  transform: scale(0.85);
+  transform-origin: center;
+}
+.navbar {
+  position: static;
+}
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  background: #fff;
+  box-shadow: 0px 1px 4px rgb(0 0 0 / 25%);
+}
+}
+
+
+@media (max-width:767.98px) {
+  .right-box .banner-heading-1 {
+      font-size: 30px;
+      /* padding-top: 170px; */
+  }
+  .banner-heading-2{
+          font-size: 15px; 
+  }
+  .create-garden{
+      font-size: 18px;
+  }
+  .about-heading {
+      font-size: 27px;
+  }
+  .footer-botom p {
+      font-size: 10px;
+  }
+}

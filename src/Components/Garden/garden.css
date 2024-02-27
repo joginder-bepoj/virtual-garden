@@ -1,0 +1,63 @@
+.garden {
+    border: 6px ridge white; /* Garden wall border */
+    display: inline-block;
+  }
+  
+  .row {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .col{
+    overflow: hidden;
+    background-image: url('../../Assets/garden-grass1.jpg');
+    border: 1px solid white; /* Cell border */
+  }
+  .col-height{
+    height: 80px;
+    display:flex - end ;
+    justify-content: center;
+    /* align-items: end ; */
+    padding-bottom: 10px;
+  }
+  .plant-1{
+     
+   height: 70px;
+    max-width: 55px;
+    position: relative;
+    animation: heightAnimation 3s  ease-in-out;
+   
+  }
+
+  @keyframes heightAnimation {
+    0% {
+        max-height: 0px;
+    }
+    
+    100% {
+        max-height: 70px;
+    }
+}
+
+
+
+.plant-swing {
+
+  position: relative;
+  top: 0;
+  left: 0;
+  animation: rotatePlant 2s infinite alternate;
+  transform-origin: center bottom; /* Set the rotation pivot at the bottom center */
+}
+
+
+
+@keyframes rotatePlant {
+  0% {
+      transform: rotate(10deg);
+  }
+  100% {
+      transform: rotate(-10deg);
+  }
+}

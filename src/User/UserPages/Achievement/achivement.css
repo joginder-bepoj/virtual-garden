@@ -1,0 +1,72 @@
+.achivement-box-1 {
+    height: 40px;
+    width: 40px !important;
+    background-color: rgb(127, 204, 11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    /* align-self: center; */
+}
+
+.achivement-box-2 {
+    height: 40px;
+    width: 40px !important;
+    background-color: rgb(63, 103, 212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    /* align-self: center; */
+}
+
+.achivement-box-3 {
+    height: 40px;
+    width: 40px !important;
+    background-color: rgb(125, 41, 102);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    /* align-self: center; */
+}
+
+.achivement-box-4 {
+    height: 40px;
+    width: 40px !important;
+    background-color: rgb(197, 137, 41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    /* align-self: center; */
+}
+
+.achivement-heading-1 {
+    color: rgb(128, 164, 74);
+}
+.achivement-heading-2 {
+    color:  rgb(63, 103, 212);
+}
+.achivement-heading-3 {
+    color: rgb(125, 41, 102);
+}
+.achivement-heading-4 {
+    color: rgb(197, 137, 41);
+}
+.font-12{
+    font-size: 12px;
+}
