@@ -156,7 +156,9 @@ function Goalprogress() {
             }
           </div>
           <div className="pe-2 col-md-2" >
-            <Button className="cursor-pointer" variant="outline-danger" onClick={()=>{setShowDeleteModal(true); setMilestoneId(elm?._id)}}><MdDeleteOutline size={20}/></Button>
+            {
+              !elm.isCompleted && <Button className="cursor-pointer" variant="outline-danger" onClick={()=>{setShowDeleteModal(true); setMilestoneId(elm?._id)}}><MdDeleteOutline size={20}/></Button>
+            }
           </div>
         </div>
          ))}
