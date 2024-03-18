@@ -168,7 +168,7 @@ function Footer() {
         <div className="footer-botom">
           <div className="container">
             <p className="text-center py-2">
-              Copyright © {new Date().getFullYear()} Virtual Ground Designed by Bytelogic Technologies
+              Copyright © {new Date().getFullYear()} Virtual Garden
             </p>
           </div>
         </div>

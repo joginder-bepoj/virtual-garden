@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import AdminRoutes from "./Admin/AdminRoutes/AdminRoutes";
 import UserRoutes from "./User/UserRoutes/UserRoutes";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import ViewGarden from "./User/UserPages/Gardens/ViewGarden";
 
 function App() {
   return (  
@@ -17,6 +18,7 @@ function App() {
              <Route path='/register' element={<Register/>}/>
              <Route path='/admin/*' element={<AdminRoutes/>}/>
              <Route path='/user/*' element={<UserRoutes/>}/>
+             <Route path="/share/garden/:id" element={<ViewGarden />} />
         </Routes>
   </>
   );

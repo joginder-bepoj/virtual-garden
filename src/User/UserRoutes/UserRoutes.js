@@ -10,12 +10,12 @@ import UserLayout from '../UserLayout/UserLayout'
 import CreateGoal from '../UserPages/Goals/CreateGoal/CreateGoal'
 import MainGarden from '../UserPages/Gardens/MainGarden'
 import ViewGarden from '../UserPages/Gardens/ViewGarden'
+import Goalprogress from '../UserPages/Goals/Goalprogress'
 
 
 function UserRoutes() {
     return (
         <UserLayout>
-       
         <Routes>
             <Route path='/' element={<UserHome/>} />
             <Route path='/search' element={<Search/>} />
@@ -26,8 +26,8 @@ function UserRoutes() {
             <Route path='/goal/create-goal' element={<CreateGoal/>} />
             <Route path='/profile' element={<Profile/>} />
             <Route path='/achievement' element={<Achievement/>} />
+            <Route path='/viewgoal/:id' element={<Goalprogress/>} />
         </Routes>
-       
         </UserLayout>
     )
 }

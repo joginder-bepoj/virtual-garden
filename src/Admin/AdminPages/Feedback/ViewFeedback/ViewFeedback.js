@@ -1,21 +1,21 @@
 import React from 'react'
 import './viewFeedback.css'
-import { AdminStore } from '../../../../Storage/AdminStorage'
 import { BsFillSendFill } from 'react-icons/bs'
+import { UserStore } from '../../../../Storage/UserStorage'
 function ViewFeedback() {
-    const { adminDarkTheme } = AdminStore()
+    const {userTheme} = UserStore()
     return (
         <div>
             <div className="row">
                 <div className="col-12 col-md-6 mt-4">
-                    <div className={`${adminDarkTheme ? "card-dark" : "card-light"} p-2 pt-3`}>
+                    <div className={`${userTheme ? "card-light" : "card-dark"} p-2 pt-3`}>
                         <img className="user-profile" src="https://app.uizard.io/placeholders/avatars/avatar-9.png" alt="profile" /> Ryan Smith
                         <h5 className='mt-3'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </h5>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat atque, voluptatem provident tempore repudiandae doloremque porro nostrum optio dolorum laudantium voluptatum, placeat vero, doloribus autem. Enim obcaecati alias dolorem molestias!</p>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 mt-4">
-                    <div className={`${adminDarkTheme ? "card-dark" : "card-light"}  chat-box-container `}>
+                    <div className={`${userTheme ? "card-light" : "card-dark"}  chat-box-container `}>
                         <div className='chat-box'>
                             <div className="chat-head">
                                 <h4 className='text-center'>Chat With Ryan Smith</h4>

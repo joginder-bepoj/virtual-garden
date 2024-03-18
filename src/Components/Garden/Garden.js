@@ -13,41 +13,41 @@ const Garden = () => {
   return (
     <div className="garden" style={{height: "490px", width: "100%"}}>
       <div className="row">
-        <div className="col" style={{height: "80px"}}><img src={Plant1} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}><img src={Plant1} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" />
-          <img src={Plant1} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant1} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant1} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} />
+          <img src={Plant1} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
       </div>
       <div className="row">
-        <div className="col" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
       </div>
       <div className="row">
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}><img src={Plant2} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant2} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
       </div>
       <div className="row">
-        <div className="col" style={{height: "80px"}}><img src={Plant1} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant1} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
       </div>
       <div className="row">
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /><img src={Plant3} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant3} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /><img src={Plant3} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
       </div>
       <div className="row">
-        <div className="col" style={{height: "80px"}}></div>
-        <div className="col" style={{height: "80px"}}><img src={Plant2} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}><img src={Plant2} className={`${plantSwing && 'plant-swing'} plant-1`} alt="plant-pic" /> </div>
-        <div className="col" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant2} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}><img src={Plant2} className={`${plantSwing && 'plant-swing'} plantHome-1`} alt="plant-pic" style={{height: "70px"}} /> </div>
+        <div className="col d-flex justify-content-center align-items-center" style={{height: "80px"}}></div>
       </div>
     </div>
   );

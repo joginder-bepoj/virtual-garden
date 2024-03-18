@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './leaderboard.css'
-import { AdminStore } from '../../../Storage/AdminStorage'
 import LeaderBoardTable from '../../../Components/Admin/Table/LeaderBoardTable'
 import axios from 'axios'
+import { UserStore } from '../../../Storage/UserStorage'
 function Leaderboard() {
-    const { adminDarkTheme } = AdminStore()
+    const {userTheme} = UserStore()
     const [data, setData] = useState()
 
 
@@ -19,7 +19,7 @@ function Leaderboard() {
                     setData(res.data)
                 }
             } catch (err) {
-                console.log(err)
+                
             }
         })()
     }, [])
@@ -32,18 +32,9 @@ function Leaderboard() {
             <div className='p-2'>
 
                
-                <div className={`m-1 mx-0 ${adminDarkTheme ? "card-dark" : "card-light"} p-2`}>
+                <div className={`m-1 mx-0 ${userTheme ? "card-light" : "card-dark"} p-2`}>
                     <div className="d-flex justify-content-between">
                         <h3 className='text-center p-3'>Leaderboard</h3>
-                        <div className='d-flex  m-3 gap-4'>
-                            {/* <input placeholder='Name/Number/Email' type="text" className={`${!adminDarkTheme && "theme-light "} form-control`} /> */}
-                            {/* <select className='form-select'>
-                                <option value="">All Time</option>
-                                <option value="">This week</option>
-                                <option value="">This Month</option>
-                            </select> */}
-
-                        </div >
                     </div>
                     <LeaderBoardTable data={data} />
                 </div>

@@ -61,3 +61,20 @@
       transform: rotate(-10deg);
   }
 }
+
+.custom-tooltip{
+  background-color: transparent; /* Light background color */
+  color: #000; /* Dark text color */
+  border: 1px solid #ccc; /* Optional: Add border for a more prominent tooltip */
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0.9;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.custom-tooltip .tooltip-inner, .custom-tooltip .tooltip-arrow::before {
+  background-color: #fff !important; /* Remove background color from tooltip text */
+  color: green;
+}

@@ -9,8 +9,11 @@ import './home.css'
 import AboutImg from '../../Assets/about-img.png'
 import LeaderBoardHomeTable from '../../Components/LeaderBaordHomeTable/LeaderBoardHomeTable';
 import { UserStore } from '../../Storage/UserStorage';
+import { useNavigate } from 'react-router-dom';
+
 function Home() {
-  const { userLightTheme } = UserStore()
+  const { userTheme, leaderboard } = UserStore()
+  const navigate = useNavigate()
   return (
     <>
       <div className="top-header">
@@ -176,9 +179,9 @@ function Home() {
       </div>
 
       <Navbar />
-      <Hero userLightTheme={userLightTheme} />
+      <Hero userTheme={userTheme} />
 
-      <section className={`${!userLightTheme && 'theme-bg-dark'} about-sec py-5`}>
+      <section className={`${!userTheme && 'theme-bg-dark'} about-sec py-5`}>
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -195,7 +198,7 @@ function Home() {
                   minus a in explicabo beatae, consectetur iusto aut?
                 </p>
                 <div className="d-inline-block">
-                  <button className="font20 fw400 text-white discover-more border-0 me-2 px-4 p-2 text-white">
+                  <button className="font20 fw400 text-white discover-more border-0 me-2 px-4 p-2 text-white" onClick={()=>navigate("/user")}>
                     Discover More
                   </button>
                 </div>
@@ -204,9 +207,9 @@ function Home() {
           </div>
         </div>
       </section>
-      <SecondSection userLightTheme={userLightTheme} />
-
-      <LeaderBoardHomeTable  userLightTheme={userLightTheme}/>
+      <SecondSection userTheme={userTheme}  />
+      
+      <LeaderBoardHomeTable  userTheme={userTheme} leaderboard={leaderboard} />
       <div className='bg-dark  text-cream-color'>
         <Footer />
       </div>

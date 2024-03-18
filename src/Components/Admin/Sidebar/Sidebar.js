@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 import { MdLeaderboard } from 'react-icons/md'
 import { useLocation } from 'react-router-dom'
 
-function Sidebar({ adminDarkTheme, handleCheckboxChange, shortSidebarToggle, setShortSidebarToggle, OpenSidebar, openSidebarToggle }) {
+function Sidebar({ adminDarkTheme, shortSidebarToggle, openSidebarToggle }) {
    
     const { pathname } = useLocation()
 
     return (
         <aside style={{
             boxShadow: ` 5px 0 7px -3px rgba(${!adminDarkTheme ? "0, 0, 0, 0.35" : "255, 255, 255, 0.35"})`
-        }} id="sidebar" className={`pt-3 ${!shortSidebarToggle && 'shortSideBaar'}  ${adminDarkTheme ? 'dark-theme light-scrollbar' : 'light-theme dark-scrollbar'} ${openSidebarToggle ? "sidebar-responsive" : ""}`} >
+        }} id="sidebar" className={`pt-3 ${!shortSidebarToggle && 'shortSideBaar'}  ${adminDarkTheme ? 'light-theme dark-scrollbar': 'dark-theme light-scrollbar'} ${openSidebarToggle ? "sidebar-responsive" : ""}`} >
           
             <ul className='sidebar-list  mt-md-0 pt-md-0 '>
 
@@ -43,19 +43,7 @@ function Sidebar({ adminDarkTheme, handleCheckboxChange, shortSidebarToggle, set
                         {'Feedback'}
                     </li>
                 </Link>
-
-
-
-
-
-
-
             </ul>
-
-
-
-
-
         </aside>
     )
 }

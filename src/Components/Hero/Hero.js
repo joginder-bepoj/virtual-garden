@@ -3,12 +3,12 @@ import "./hero.css";
 import Garden from "../Garden/Garden";
 import { NavLink} from "react-router-dom";
 
-function Hero({ userLightTheme }) {
+function Hero({ userTheme }) {
 
   return (
     <section
       className={`${
-        !userLightTheme && "theme-bg-dark"
+        !userTheme && "theme-bg-dark"
       } banner-sec position-relative`}
     >
       <div className="container">
@@ -26,11 +26,6 @@ function Hero({ userLightTheme }) {
                 <NavLink to="/login">
                   <button className="font20 create-garden me-2 px-2 px-md-4 p-2 border-0 text-white">
                     Create Garden
-                  </button>
-                </NavLink>
-                <NavLink to="/login">
-                  <button className="px-2 px-md-4 p-2 font20 login-btn mb-3 mb-md-0">
-                    Login
                   </button>
                 </NavLink>
               </div>

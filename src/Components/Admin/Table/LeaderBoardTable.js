@@ -1,18 +1,18 @@
 import Gold from '../../../Assets/golds.png'
 import Silver from '../../../Assets/silvers.png'
 import Bronze from '../../../Assets/bronze.png'
+import { useLocation } from 'react-router-dom';
 const LeaderBoardTable = ({ data }) => {
+    const location = useLocation()
 
     return (
-        <table className="responsive-table">
-
+        <table className={ location.pathname ==="/" ? "responsive-table border" : "responsive-table"}>
             <thead>
                 <tr>
                     <th>Rank</th>
                     <th>Name</th>
-                    <th>Goals Achieved</th>
+                    <th>Milestones</th>
                     <th>Gardens </th>
-                    <th>Overall Activity</th>
                     <th>Medal</th>
                 </tr>
             </thead>
@@ -22,9 +22,8 @@ const LeaderBoardTable = ({ data }) => {
                         <tr key={ind} >
                             <td>{ind + 1}</td>
                             <td>{elm?.user?.name}</td>
-                            <td >-N/A-</td>
+                            <td className='fw-bold'> {elm?.totalCompletedMilestones} / {elm?.totalMilestones} </td>
                             <td>{elm?.garden?.length}</td>
-                            <td>-N/A-</td>
                             <td><img height={25} src={ind < 3 ? Gold : ind >=3 && ind < 6 ? Silver : Bronze} alt='medals' /></td>
                         </tr>
                     ) : <p>Loading...</p>

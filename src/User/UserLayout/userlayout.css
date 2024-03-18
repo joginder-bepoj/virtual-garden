@@ -28,6 +28,9 @@
     background-color:var( --user_sidebar-light-theme-color);
     color: black !important;
 }
+.main{
+    height: max-content;
+}
 .user_main{
      margin-left: 100px;
      min-height: 100vh;

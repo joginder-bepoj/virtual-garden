@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './user.css'
-
-// import { MdRemoveRedEye } from 'react-icons/md'
-import { AdminStore } from '../../../Storage/AdminStorage';
-// import { GiAchievement } from 'react-icons/gi';
 import UserTable from '../../../Components/Admin/Table/UserTable';
 import axios from 'axios';
 import { Button, Modal } from 'react-bootstrap';
 import { toast } from 'sonner';
+import { UserStore } from '../../../Storage/UserStorage';
 
 function Users() {
-    const { adminDarkTheme } = AdminStore()
+    const {userTheme} = UserStore()
     const [usersData, setUsersData] = useState([])
     const [intialData, setIntialData] = useState(null)
     const [selectedUser, setSelectedUser] = useState(null)
@@ -40,7 +37,7 @@ function Users() {
                 handleDeactivateClose()
             }
         } catch (error) {
-            console.log(error)
+            
         }
     }
 
@@ -52,7 +49,7 @@ function Users() {
                 handleDeactivateClose()
             }
         } catch (error) {
-            console.log(error);
+            ;
         }
     }
 
@@ -65,7 +62,7 @@ function Users() {
             }
         } catch (error) {
             toast.error("Something went wrong! Please try again later")
-            console.log(error)
+            
             handleClose()
         }
     }
@@ -91,7 +88,7 @@ function Users() {
                 setUsersData(res.data)
                 setIntialData(res.data)
             } catch (err) {
-                console.log(err)
+                
             }
         })()
     }, [selectedUser])
@@ -99,11 +96,11 @@ function Users() {
     return (
         <>
             <div className="py-1">
-                <div className={`m-2  p-2 ${adminDarkTheme ? "card-dark" : "card-light"} `}>
+                <div className={`m-2  p-2 ${userTheme ? "card-light" : "card-dark"} `}>
                     <div className="d-flex justify-content-between">
                         <h3 className='text-center p-3'>Users</h3>
                         <div className='d-flex  m-3 gap-4'>
-                            <input placeholder='Name' type="text" onChange={handleSearchChange} className={`${!adminDarkTheme && "theme-light "} form-control`} />
+                            <input placeholder='Name' type="text" onChange={handleSearchChange} className={`${userTheme && "theme-light "} form-control`} />
                         </div >
                     </div>
                     <UserTable data={usersData} handleShow={handleShow} handleDeactivateShow={handleDeactivateShow} />

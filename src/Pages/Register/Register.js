@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./register.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { UserStore } from "../../Storage/UserStorage";
 import axios from "axios";
@@ -10,8 +10,11 @@ import { FaAppStoreIos } from "react-icons/fa";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 function Register() {
-  const { userLightTheme, userType } = UserStore();
-  const [registerFormStep, setRegisterFormStep] = useState(1);
+  const location = useLocation();
+  const { userTheme, userType } = UserStore();
+  const [registerFormStep, setRegisterFormStep] = useState(location?.state?.value || 1);
+
+  
 
   const initialData = {
     fullName: "",
@@ -98,7 +101,7 @@ function Register() {
             setRegisterFormStep(3);
           }
         } catch (error) {
-          console.log(error);
+          ;
         }
       }
     } else if (registerFormStep === 3) {
@@ -111,14 +114,14 @@ function Register() {
         try {
           const res = await axios.post(
             `${process.env.REACT_APP_BASE_URL}/api/user/verify`,
-            { email: formData.email, otp: otp }
+            { email:  location?.state?.email || formData.email, otp: otp }
           );
           if (res.data) {
             toast.success("user verfied successfully. Now plaese login");
             navigate("/login");
           }
         } catch (error) {
-          console.log(error);
+          ;
         }
       }
     }
@@ -134,22 +137,22 @@ function Register() {
       <div className="login-container">
         <div
           className={`${
-            userLightTheme ? "theme-bg-light" : "theme-bg-dark"
+            userTheme ? "theme-bg-light" : "theme-bg-dark"
           } login-box`}
         >
           <div className=" login_form d-flex justify-content-between gap-2 m-4 align-items-center">
             <div
               className={
-                userLightTheme ? "steper-active-light" : "steper-active-dark"
+                userTheme ? "steper-active-light" : "steper-active-dark"
               }
             ></div>
             <div
               className={`${
                 registerFormStep >= 2
-                  ? userLightTheme
+                  ? userTheme
                     ? "steper-active-light"
                     : "steper-active-dark"
-                  : userLightTheme
+                  : userTheme
                   ? "steper-light"
                   : "steper-dark"
               }`}
@@ -157,10 +160,10 @@ function Register() {
             <div
               className={`${
                 registerFormStep >= 3
-                  ? userLightTheme
+                  ? userTheme
                     ? "steper-active-light"
                     : "steper-active-dark"
-                  : userLightTheme
+                  : userTheme
                   ? "steper-light"
                   : "steper-dark"
               }`}
@@ -194,7 +197,7 @@ function Register() {
             </div>
           </div>
           <div className="text-center">
-            {registerFormStep === 3 ? (
+            {registerFormStep === 3 &&  (
                 <div className="text-muted">
                     <h4>Download Google Authenticator</h4>
                     <p style={{ fontSize: "0.9rem" }}>
@@ -202,7 +205,8 @@ function Register() {
                     <FaGooglePlay /> and App Store <FaAppStoreIos />
                     </p>
               </div>
-            ) : (
+            )}
+             {registerFormStep === 4 && (
               <>
                 <h4>Open Google Authenticator</h4>
                 <p>Please enter your six digit code</p>
@@ -224,7 +228,7 @@ function Register() {
                     name="fullName"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${errorName && "error-border"} login_input`}
                     type="text"
                     autoComplete="off"
@@ -241,7 +245,7 @@ function Register() {
                     name="email"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${errorEmail && "error-border"} login_input`}
                     type="email"
                   />
@@ -257,7 +261,7 @@ function Register() {
                     name="dob"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${errorDob && "error-border"} login_input`}
                     type="date"
                   />
@@ -277,7 +281,7 @@ function Register() {
                     name="userName"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${userName && "error-border"} login_input`}
                     type="text"
                   />
@@ -293,7 +297,7 @@ function Register() {
                     name="password"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${errorPassword && "error-border"} login_input`}
                     type="password"
                   />
@@ -304,7 +308,7 @@ function Register() {
                     name="confirmPassword"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${
                       formData.password !== formData.confirmPassword &&
                       "error-border"
@@ -324,7 +328,7 @@ function Register() {
                     name="phone"
                     onChange={handleChange}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${errorPhone && "error-border"} login_input`}
                     type="number"
                   />
@@ -337,7 +341,7 @@ function Register() {
                   <h5>Scan QRCode in Authenticator App</h5>
                 </div>
                 <div className="d-flex justify-content-center">
-                  <img src={user?.qrcode} alt="qrCode" />
+                  <img src={location?.state?.qrcode || user?.qrcode} alt="qrCode" />
                 </div>
               </>
             )}
@@ -349,7 +353,7 @@ function Register() {
                     name="otp"
                     onChange={(e) => setOtp(e.target.value)}
                     className={`${
-                      userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                      userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } ${errorOtp && "error-border"} login_input`}
                     type="text"
                   />

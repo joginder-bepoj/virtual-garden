@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./feedback.css";
-import { AdminStore } from "../../../Storage/AdminStorage";
 import FeedbackTable from "../../../Components/Admin/Table/FeedbackTable";
 import axios from "axios";
 import { Button, Modal } from "react-bootstrap";
 import { toast } from "sonner";
+import { UserStore } from "../../../Storage/UserStorage";
 
 
 function Feedback() {
-  const { adminDarkTheme } = AdminStore();
+  const { userTheme } = UserStore();
   const [userFeedback, setUserFeedback] = useState([]);
   const [initalfeedback, setInitalFeedback] = useState([]);
   const [show, setShow] = useState(false);
@@ -46,7 +46,7 @@ function Feedback() {
       setSelectedUser(id);
       setViewOneFeedback(res.data);
     } catch (error) {
-      console.log(error);
+      ;
     }
   };
 
@@ -59,7 +59,7 @@ function Feedback() {
         setUserFeedback(res.data);
         setInitalFeedback(res.data);
       } catch (err) {
-        console.log(err);
+        ;
       }
     })();
   }, [selectedUser]);
@@ -74,7 +74,7 @@ function Feedback() {
         handleClose();
       }
     } catch (error) {
-      console.log(error);
+      ;
     }
   };
 
@@ -92,7 +92,7 @@ function Feedback() {
       handleViewClose();
       }
     } catch (error) {
-      console.log(error);
+      ;
     }
   };
 
@@ -102,7 +102,7 @@ function Feedback() {
         <div className="col-12 col-md-3 mt-4">
           <div
             className={`${
-              adminDarkTheme ? "card-dark" : "card-light"
+              userTheme ? "card": "card-dark"
             } p-2 pt-3`}
           >
             <h3 className="text-center">Total Query </h3>
@@ -115,7 +115,7 @@ function Feedback() {
         <div className="col-12 col-md-3 mt-4">
           <div
             className={`${
-              adminDarkTheme ? "card-dark" : "card-light"
+              userTheme ? "card": "card-dark"
             } p-2 pt-3`}
           >
             <h3 className="text-center">Active Query </h3>
@@ -133,7 +133,7 @@ function Feedback() {
         <div className="col-12 col-md-3 mt-4 ">
           <div
             className={`${
-              adminDarkTheme ? "card-dark" : "card-light"
+              userTheme ? "card-light": "card-dark"
             } p-2 pt-3`}
           >
             <h3 className="text-center">Resolved Query </h3>
@@ -151,7 +151,7 @@ function Feedback() {
         <div className="col-12 col-md-3 mt-4 ">
           <div
             className={`${
-              adminDarkTheme ? "card-dark" : "card-light"
+              userTheme ? "card-light": "card-dark"
             } p-2 pt-3`}
           >
             <h3 className="text-center">Rejected Query </h3>
@@ -219,7 +219,7 @@ function Feedback() {
       </Modal>
 
       <div
-        className={`m-2  p-2 ${adminDarkTheme ? "card-dark" : "card-light"} `}
+        className={`m-2  p-2 ${userTheme ? "card-light": "card-dark"} `}
       >
         <div className="d-flex justify-content-between">
           <h3 className="text-center p-3">Feedback</h3>
@@ -229,7 +229,7 @@ function Feedback() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               type="search"
-              className={`${!adminDarkTheme && "theme-light "} form-control`}
+              className={`${userTheme && "theme-light "} form-control`}
             />
           </div>
         </div>

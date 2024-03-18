@@ -1,6 +1,15 @@
-.cell{
-    height: 43px;
+.cell {
+  height: 43px;
 }
-.plant-1{
-    height:25px;
+.plant-1 {
+  height: 25px;
+}
+.nxt{
+    display: none;
+    padding: 5px;
+}
+.ext:hover{
+    .nxt{
+        display: block;
+    }
 }

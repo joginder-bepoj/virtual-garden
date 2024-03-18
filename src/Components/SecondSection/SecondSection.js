@@ -7,9 +7,9 @@ import Plant4 from '../../Assets/plants-3.png'
 import Plant5  from '../../Assets/plants-4.png'
 import Plant6 from '../../Assets/plants-5.png'
 import './secondsection.css'
-function SecondSection({userLightTheme}) {
+function SecondSection({userTheme}) {
     return (
-        <section className={`${!userLightTheme && 'theme-bg-dark'} py-5 plant`}>
+        <section className={`${!userTheme && 'theme-bg-dark'} py-5 plant`}>
         <div className="container">
           <h2 className="about-heading fw700 text-center mb-0">
             Plants tree virtually by{" "}
@@ -21,7 +21,7 @@ function SecondSection({userLightTheme}) {
           </p>
           <div className="row">
             <div className="col-md-4 mb-4">
-              <div  className={ ` ${userLightTheme ? 'card' : ' card-dark cardhome' } overflow-hidden   rounded-3 p-3`}>
+              <div  className={ ` ${userTheme ? 'card' : ' card-dark cardhome' } overflow-hidden   rounded-3 p-3`}>
                 <a  href="#" className="zoom-img">
                   <img
                     src={Plant1}
@@ -39,7 +39,7 @@ function SecondSection({userLightTheme}) {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-            <div className={ `overflow-hidden ${userLightTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
+            <div className={ `overflow-hidden ${userTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
                 <a  className="zoom-img">
                   <img
                     src={Plant2}
@@ -57,7 +57,7 @@ function SecondSection({userLightTheme}) {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-            <div className={ `overflow-hidden ${userLightTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
+            <div className={ `overflow-hidden ${userTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
                 <a href="shop.html" className="zoom-img">
                   <img
                      src={Plant3}
@@ -75,7 +75,7 @@ function SecondSection({userLightTheme}) {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-            <div className={ `overflow-hidden ${userLightTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
+            <div className={ `overflow-hidden ${userTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
                 <a href="shop.html" className="zoom-img">
                   <img
                     src={Plant4}
@@ -93,7 +93,7 @@ function SecondSection({userLightTheme}) {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-            <div className={ `overflow-hidden ${userLightTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
+            <div className={ `overflow-hidden ${userTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
                 <a href="shop.html" className="zoom-img">
                   <img
                      src={Plant5}
@@ -111,7 +111,7 @@ function SecondSection({userLightTheme}) {
               </div>
             </div>
             <div className="col-md-4 mb-4">
-            <div className={ `overflow-hidden ${userLightTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
+            <div className={ `overflow-hidden ${userTheme ? 'card' : ' card-dark cardhome' }   rounded-3 p-3`}>
                 <a href="shop.html" className="zoom-img">
                   <img
                      src={Plant6}

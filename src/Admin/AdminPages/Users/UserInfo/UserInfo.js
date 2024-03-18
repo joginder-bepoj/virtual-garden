@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './userinfo.css'
-import { AdminStore } from '../../../../Storage/AdminStorage'
 import { GiAchievement } from 'react-icons/gi'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { UserStore } from '../../../../Storage/UserStorage'
+
 function UserInfo() {
-    const { adminDarkTheme } = AdminStore()
+    const {userTheme} = UserStore()
     const params = useParams()
 
     const [userDetail, setUserDetail] = useState({})
@@ -16,7 +17,7 @@ function UserInfo() {
             const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/getone/${params.id}`)
             setUserDetail(res.data)
         } catch (error) {
-            console.log(error)
+            
         }
       })()
     }, [params.id])
@@ -25,7 +26,7 @@ function UserInfo() {
         <>
             <div className="row m-0">
                 <div className="col-12 pt-4  col-md-6 align-items-center">
-                    <div className={` mt-2    ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+                    <div className={` mt-2    ${userTheme ? "card-light" : "card-dark"}`}>
                         <div className="row m-0">
                             <div className="col-12 p-2  d-flex justify-content-center col-md-12 align-items-center">
                                 <img style={{ borderRadius: "50%" }} height={'100px'} width={'100px'} src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" />
@@ -50,7 +51,7 @@ function UserInfo() {
                     </div>
                 </div>
                 <div className="col-12 pt-md-4  col-md-6 align-items-center">
-                    <div className={`mt-2 p-2  ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+                    <div className={`mt-2 p-2  ${userTheme ? "card-light" : "card-dark"}`}>
                         <h4 className='text-center m-3'>Garden Details</h4>
                         <div className='d-flex justify-content-around'>
                             <div>
@@ -63,7 +64,7 @@ function UserInfo() {
                             </div>
                         </div>
                     </div>
-                    <div className={`mt-2 p-2  ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+                    <div className={`mt-2 p-2  ${userTheme ? "card-light" : "card-dark"}`}>
                         <h4 className='text-center m-3'>Goals </h4>
                         <div className='d-flex justify-content-around'>
                             <div>
@@ -80,7 +81,7 @@ function UserInfo() {
             </div>
            <div className="row">
             <div className="col-12 col-md-6">
-            <div className={` px-2 ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+            <div className={` px-2 ${userTheme ? "card-light" : "card-dark"}`}>
                 <h4 className='text-center pt-3'>Milestones</h4>
                 <div className='mt-4 mb-2 d-flex justify-content-around'>
                     <div>
@@ -95,7 +96,7 @@ function UserInfo() {
             </div>
             </div>
             <div className="col-12 col-md-6">
-            <div className={` px-2 ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+            <div className={` px-2 ${userTheme ? "card-light" : "card-dark"}`}>
             <h4 className='text-center pt-3'>Achievements</h4>
             <div className='d-flex pb-1 pb-5 pt-4 justify-content-center gap-3'>
                     <GiAchievement color='gold' size={30} />

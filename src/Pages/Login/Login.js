@@ -3,12 +3,12 @@ import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { UserStore } from "../../Storage/UserStorage";
-import axios from "axios";
-import { InfinitySpin } from "react-loader-spinner";
+import axios from "axios"
 import { toast } from "sonner";
+import Spinner from "../../Components/Spinner";
 
 function Login() {
-    const { userLightTheme, userType } = UserStore();
+    const { userTheme, userType } = UserStore();
     const initialData = {
         email: false,
         password: false,
@@ -58,7 +58,11 @@ function Login() {
             }
         } catch (error) {
             setIsLoading(false);
-            toast.error("Please check Email and Password are correct");
+            if(error.response.data.otp && error.response.status === 401){
+                navigate("/register", { state:  {value: 3, qrcode: error.response.data.qrcode, email: userEmail_phone}})
+            }else{
+                toast.error("Please check Email and Password are correct");
+            }
         }
     };
 
@@ -90,6 +94,7 @@ function Login() {
             }
         } catch (error) {
             toast.error("Please enter valid token"); 
+            setIsLoading(false)
         }
     };
 
@@ -103,7 +108,7 @@ function Login() {
                 <Navbar />
                 <div className="login-container">
                     <div
-                        className={`${userLightTheme ? "theme-bg-light" : "theme-bg-dark"
+                        className={`${userTheme ? "theme-bg-light" : "theme-bg-dark"
                             } login-box`}
                     >
                         <h3 className="text-center m-2 mt-5">Login</h3>
@@ -125,9 +130,7 @@ function Login() {
                             </div>
                         </div>
                         {isLoading && (
-                            <div style={{ position: "absolute", top: "30%", left: "40%" }}>
-                                <InfinitySpin width="200" color="#4fa94d" />
-                            </div>
+                            <Spinner />
                         )}
                         {loginDone ? (<form className="d-flex flex-column justify-content-center align-items-center ">
                             <h5>Enter your 2FA code</h5>
@@ -136,7 +139,7 @@ function Login() {
                             <label className="my-2 ms-4 align-self-baseline">Email / Phone</label>
                             <input
                                 style={{ width: '90%' }}
-                                className={` ${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                                className={` ${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                                     } login_input ${formData.email && "error-border"} `}
                                 name="email"
                                 value={userEmail_phone}
@@ -147,9 +150,10 @@ function Login() {
                             <label className="my-2 ms-4 align-self-baseline">Token</label>
                             <input
                                 style={{ width: '90%' }}
+                                maxLength={6}
                                 name="otp"
                                 onChange={(e) => setOtp(e.target.value)}
-                                className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                                className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                                     }  login_input`}
                                 type="text"
                             />
@@ -157,7 +161,7 @@ function Login() {
                             <div className="text-center mt-4 mb-5">
                                 <button
                                     onClick={handleVerify}
-                                    className={`register-btn ${!userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                                    className={`register-btn ${!userTheme ? "theme-bg-light border" : "theme-bg-dark"
                                         }`}
                                 >
                                     Verify
@@ -168,7 +172,7 @@ function Login() {
                             (<form className="login_form" onSubmit={handleLogin}>
                                 <label className="my-2">Email / Phone</label>
                                 <input
-                                    className={` ${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                                    className={` ${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                                         } login_input ${formData.email && "error-border"} `}
                                     name="email"
                                     onChange={(e) => setUserEmail_Phone(e.target.value)}
@@ -179,7 +183,7 @@ function Login() {
                                 )}
                                 <label className="my-1 mt-3">Password</label>
                                 <input
-                                    className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                                    className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                                         } ${formData.password && "error-border"} login_input`}
                                     name="password"
                                     onChange={(e) => setPassword(e.target.value)}
@@ -188,12 +192,12 @@ function Login() {
                                 {formData.password && (
                                     <p style={{ color: "red" }}>Please enter correct password</p>
                                 )}
-                                <p className="login_registerLink pt-2 pb-2" style={{fontSize:'14px'}}>
-                                    Don't have account ?<Link to={"/register"}> Register now</Link>
+                                <p className="login_registerLink pt-2 pb-2 text-center" style={{fontSize:'14px'}}>
+                                    Don't have account?<Link to={"/register"}> Register now</Link>
                                 </p>
                                 <div className="text-center mt-4 mb-5">
                                     <button
-                                        className={`register-btn ${!userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                                        className={`register-btn ${!userTheme ? "theme-bg-light border" : "theme-bg-dark"
                                             }`}
                                     >
                                         Login

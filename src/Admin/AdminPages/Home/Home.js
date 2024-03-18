@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import './home.css'
 import MonthlyGraph from '../../../Components/Admin/Graphs/DayGraph';
-import { AdminStore } from '../../../Storage/AdminStorage';
 import { BsArrowDown, BsArrowUpRight, BsDot, BsFillCalendar2Fill } from 'react-icons/bs'
 import { RiLineChartLine } from 'react-icons/ri'
 import PieChart from '../../../Components/Admin/Graphs/CicleChart';
@@ -11,8 +10,7 @@ import LeaderBoardTable from '../../../Components/Admin/Table/LeaderBoardTable';
 import axios from 'axios';
 import { UserStore } from '../../../Storage/UserStorage';
 function Home() {
-    const { adminDarkTheme } = AdminStore()
-    const { userId } = UserStore()
+    const { userId, userTheme } = UserStore()
     const [usersData, setUsersData] = useState([])
     const [userDetail, setUserDetail] = useState()
 
@@ -30,7 +28,7 @@ function Home() {
                     setData(res.data)
                 }
             } catch (err) {
-                console.log(err)
+                
             }
         })()
     }, [])
@@ -53,7 +51,7 @@ function Home() {
                 const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/getall`)
                 setUsersData(res.data)
             } catch (err) {
-                console.log(err)
+                
             }
         })()
     }, [])
@@ -66,7 +64,7 @@ function Home() {
                     setUserDetail(res.data.user)
                 }
             } catch (err) {
-                console.log(err)
+                
             }
         })()
     }, [userId])
@@ -86,7 +84,7 @@ function Home() {
             </div>
             <div className='row'>
                 <div className="col-12 col-md-6 mt-4 ">
-                    <div style={{ height: '350px' }} className={`overflow-hidden ${adminDarkTheme ? "card-dark" : "card-light"} p-3`}>
+                    <div style={{ height: '350px' }} className={`overflow-hidden ${userTheme ? "card-light" : "card-dark"} p-3`}>
                         <div className='d-flex justify-content-between align-self-center m-0'>
                             <div className=''>
                                 <small><RiLineChartLine />Total profit</small>
@@ -109,18 +107,18 @@ function Home() {
                     </div>
                 </div>
                 <div className="col-12 col-md-6 mt-4">
-                    <div style={{ height: '350px' }} className={adminDarkTheme ? "card-dark" : "card-light"}>
+                    <div style={{ height: '350px' }} className={userTheme ? "card-light" : "card-dark"}>
                         <PieChart heading={'Monthly User'} />
                     </div>
                 </div>
                 <div className="col-12 ">
-                    <div className={`overflow-auto ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+                    <div className={`overflow-auto ${userTheme ? "card-light" : "card-dark"}`}>
                         <h5 className='text-center p-3'>Latest Users</h5>
                         <UserTable data={usersData} />
                     </div>
                 </div>
                 <div className="col-12 "> 
-                    <div className={`overflow-auto ${adminDarkTheme ? "card-dark" : "card-light"}`}>
+                    <div className={`overflow-auto ${userTheme ? "card-light" : "card-dark"}`}>
                         <h5 className='text-center p-3'>Top 10 Ranks</h5>
                         <LeaderBoardTable data={data} />
                     </div>

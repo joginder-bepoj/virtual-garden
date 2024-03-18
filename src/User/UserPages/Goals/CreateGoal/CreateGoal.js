@@ -2,24 +2,37 @@ import React, { useState } from "react";
 import { UserStore } from "../../../../Storage/UserStorage";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { InfinitySpin  } from 'react-loader-spinner'
 import { toast } from "sonner";
+import Spinner from "../../../../Components/Spinner";
 
 function CreateGoal() {
-  const { userLightTheme, gardens, userId } = UserStore();
+  const { userTheme, gardens, userId } = UserStore();
   
   const intitialState = {
     userInputDays: '',
     name: '',
     garden: '',
     description: '',
-    frequency: '',
-    goalType: ""
+    frequency: 'daily',
+    goalType: "Personal"
   }
   
   const navigate = useNavigate()
   
-  
+  const [error, setError] = useState({
+    name: false,
+    garden: false,
+    userInputDays: false,
+    description: false
+  })
+
+  const textError = {
+    name: "*Please enter goal name",
+    garden: "*Please Choose your garden",
+    userInputDays: "Select your goal achived date",
+    describe: "*Please describe about your goal"
+  }
+
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState(intitialState)
 
@@ -27,6 +40,11 @@ function CreateGoal() {
   const handleChange = (e) => {
     setFormData((preState) => ({ ...preState, [e.target.name]: e.target.value }))
   }
+
+  const handleFocus = (e) => {
+    setError((prev) => ({...prev, [e.target.name]: false}))
+  }
+
   let data = {
     name: formData.name,
     description: formData.description,
@@ -41,14 +59,27 @@ function CreateGoal() {
     e.preventDefault()
     setIsLoading(true)
     try {
+
+      if(formData.name?.length < 3){
+        setError((prev) => ({...prev, "name":true}))
+      }
+      if(formData.garden === ""){
+        setError((prev) => ({...prev, "garden":true}))
+      }
+      if(formData.userInputDays === ""){
+        setError((prev) => ({...prev, "userInputDays":true}))
+      }
+      if(formData.description.length < 10){
+        setError((prev) => ({...prev, "description":true}))
+      }
       const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/garden/goals/create`, data)
       if (res.data) {
         setIsLoading(false)
-        toast.success("Goal is created to garden")
+        toast.success("Goal is created to the selected garden")
         navigate("/user/goals")
       }
     } catch (error) {
-      console.log(error)
+      
       setIsLoading(false)
     }
   }
@@ -62,29 +93,23 @@ function CreateGoal() {
   ) : (
     <>
       <div
-        className={`overflow-auto ${userLightTheme ? "card-light" : "card-dark"
+        className={`overflow-auto ${userTheme ? "card-light" : "card-dark"
           } p-3 m-2`}
       >
         <h2>Create Goal</h2>
         {
-          isLoading &&
-          <div style={{position: "absolute", top: "30%", left: "40%"}}>
-          <InfinitySpin 
-          width='200'
-          color="#4fa94d"
-          />
-          </div> 
+          isLoading && <Spinner />
         }
-        <form onSubmit={handleCreate}>
+        <form onSubmit={handleCreate} className="needs-validation">
           <div className="row text-start">
             <div className="col-12 col-md-6">
               <div className="form-group mt-2">
                 <label htmlFor="goal-type">Type of Goal:</label>
                 <select
-
+                  value={formData.goalType}
                   name='goalType'
                   onChange={(e) => handleChange(e)}
-                  className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                  className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } login_input`}
                 >
                   <option value="Personal">Personal</option>
@@ -97,10 +122,13 @@ function CreateGoal() {
               </div>
               <div className="form-group mt-2">
                 <label htmlFor="goal-type">Choose a Garden:</label>
+                {error.garden && <small style={{color:"red"}}>{textError.garden}</small>}
                 <select
+                  value={formData.garden}
+                  onFocus={handleFocus}
                   name="garden"
                   onChange={(e) => handleChange(e)}
-                  className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                  className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } login_input`}
                 >
                   <option value="">Select garden</option>
@@ -117,26 +145,30 @@ function CreateGoal() {
                   type="text"
                   name="goal-name"
                   className={`${
-                    userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                    userTheme ? "theme-bg-light border" : "theme-bg-dark"
                   } login_input`}
                 />
               </div> */}
               <div className="form-group mt-2">
                 <label htmlFor="goal-name">Goal Name:</label>
+                {error.name && <small style={{color:"red"}}>{textError.name}</small>}
                 <input
+                  value={formData.name}
                   type="text"
                   name="name"
+                  onFocus={handleFocus}
                   onChange={(e) => handleChange(e)}
-                  className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
-                    } login_input`}
+                  className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
+                    } login_input form-invalid`}
                 />
               </div>
               <div className="form-group mt-2">
                 <label htmlFor="goal-name">Goal frequency:</label>
                 <select
+                  value={formData.frequency}
                   name="frequency"
                   onChange={(e) => handleChange(e)}
-                  className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                  className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } login_input`}
                 >
                   <option value="">Select frequency</option>
@@ -150,22 +182,26 @@ function CreateGoal() {
             <div className="col-12 col-md-6">
               <div className="form-group mt-2">
                 <label htmlFor="completion-date">Target Completion Date:</label>
+                {error.userInputDays && <small style={{color:"red"}}>{textError.userInputDays}</small>}
                 <input
+                  value={formData.userInputDays}
                   type="date"
                   name='userInputDays'
                   onChange={(e) => handleChange(e)}
-
-                  className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                  onFocus={handleFocus}
+                  className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } login_input`}
                 />
               </div>
               <div className="form-group mt-3">
                 <label htmlFor="goal-description">Goal Description:</label>
+                {error.description && <small style={{color:"red"}}>{textError.describe}</small>}
                 <textarea
                   name="description"
+                  onFocus={handleFocus}
                   rows={6}
                   onChange={(e) => handleChange(e)}
-                  className={`${userLightTheme ? "theme-bg-light border" : "theme-bg-dark"
+                  className={`${userTheme ? "theme-bg-light border" : "theme-bg-dark"
                     } login_input`}
                   defaultValue={""}
                 />

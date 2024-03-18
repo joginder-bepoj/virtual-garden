@@ -7,14 +7,14 @@ import { GiIsland } from 'react-icons/gi'
 import { LuTrophy } from 'react-icons/lu'
 import { useLocation } from 'react-router-dom'
 
-function UserSidebar({ userLightTheme, handleCheckboxChange, shortSidebarToggle, setShortSidebarToggle, OpenSidebar, openSidebarToggle }) {
+function UserSidebar({ userTheme, shortSidebarToggle, openSidebarToggle }) {
 
     const { pathname } = useLocation()
 
     return (
         <aside style={{
-            boxShadow: ` 5px 0 7px -3px rgba(${userLightTheme ? "0, 0, 0, 0.35" : "255, 255, 255, 0.35"})`
-        }} id="sidebar" className={`pt-3 ${!shortSidebarToggle && 'shortSideBaar'}  ${userLightTheme ? ' light-theme light-scrollbar' : 'dark-theme dark-scrollbar'} ${openSidebarToggle ? "sidebar-responsive" : ""}`} >
+            boxShadow: ` 5px 0 7px -3px rgba(${userTheme ? "0, 0, 0, 0.35" : "255, 255, 255, 0.35"})`
+        }} id="sidebar" className={`pt-3 ${!shortSidebarToggle && 'shortSideBaar'}  ${userTheme ? ' light-theme light-scrollbar' : 'dark-theme dark-scrollbar'} ${openSidebarToggle ? "sidebar-responsive" : ""}`} >
 
             <ul className='sidebar-list  mt-md-0 pt-md-0 '>
 
