@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Admin/Sidebar/Sidebar'
 import Header from '../../Components/Admin/Header/Header'
 import './AdminLayout.css'
 import { UserStore } from '../../Storage/UserStorage'
+import { useNavigate } from 'react-router-dom'
 
 
 function AdminLayout({ children }) {
 
-    const {userTheme, setUserTheme} = UserStore()
+    const {userTheme, setUserTheme, userType} = UserStore()
 
-
+    const navigate = useNavigate()
 
     const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
     const [shortSidebarToggle, setShortSidebarToggle] = useState(true)
@@ -21,6 +22,12 @@ function AdminLayout({ children }) {
     const OpenSidebar = () => {
         setOpenSidebarToggle(!openSidebarToggle)
     }
+
+    useEffect(()=>{
+        if(userType) userType !== "user"  && navigate("/admin")
+        else if(userType === null || userType === undefined) navigate("/login")
+    },[navigate, userType])
+
 
     return (
         <>

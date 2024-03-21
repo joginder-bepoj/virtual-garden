@@ -20,6 +20,7 @@ function UserLayout({ children }) {
 
     useEffect(()=>{
         if(userType) userType !== "user"  && navigate("/admin")
+        else if(userType === null || userType === undefined) navigate("/login")
     },[navigate, userType])
 
 
