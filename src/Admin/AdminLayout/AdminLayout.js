@@ -24,7 +24,7 @@ function AdminLayout({ children }) {
     }
 
     useEffect(()=>{
-        if(userType) userType !== "user"  && navigate("/admin")
+        if(userType) userType === "user" && navigate("/user")
         else if(userType === null || userType === undefined) navigate("/login")
     },[navigate, userType])
 
