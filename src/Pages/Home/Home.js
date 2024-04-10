@@ -14,7 +14,6 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   const { userTheme, leaderboard } = UserStore()
   const navigate = useNavigate()
-  let a = 10
   return (
     <>
       <div className="top-header">
