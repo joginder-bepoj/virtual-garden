@@ -6,22 +6,22 @@ import axios from 'axios'
 import { UserStore } from '../../../../Storage/UserStorage'
 
 function UserInfo() {
-    const {userTheme} = UserStore()
+    const { userTheme } = UserStore()
     const params = useParams()
 
     const [userDetail, setUserDetail] = useState({})
 
     useEffect(() => {
-      (async()=>{
-        try {
-            const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/getone/${params.id}`)
-            setUserDetail(res.data)
-        } catch (error) {
-            
-        }
-      })()
+        (async () => {
+            try {
+                const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/getone/${params.id}`)
+                setUserDetail(res.data)
+            } catch (error) {
+                return;
+            }
+        })()
     }, [params.id])
-    
+
     return (
         <>
             <div className="row m-0">
@@ -43,7 +43,7 @@ function UserInfo() {
                                 <h6 className='text-center'>ID</h6>
                                 <p className='text-center user-info-text'>{userDetail.user?._id}</p>
                                 <h6 className='text-center'>Address</h6>
-                                <p className='text-center user-info-text'>{userDetail.user?.street ?  userDetail.user?.street + " " + userDetail.user?.city + ", " + userDetail.user?.state : "-NA-"} </p>
+                                <p className='text-center user-info-text'>{userDetail.user?.street ? userDetail.user?.street + " " + userDetail.user?.city + ", " + userDetail.user?.state : "-NA-"} </p>
                                 <h6 className='text-center'>Join in</h6>
                                 <p className='text-center user-info-text'>{userDetail.user?.createdAt || "-NA-"}</p>
                             </div>
@@ -79,35 +79,35 @@ function UserInfo() {
                     </div>
                 </div>
             </div>
-           <div className="row">
-            <div className="col-12 col-md-6">
-            <div className={` px-2 ${userTheme ? "card-light" : "card-dark"}`}>
-                <h4 className='text-center pt-3'>Milestones</h4>
-                <div className='mt-4 mb-2 d-flex justify-content-around'>
-                    <div>
-                        <p>Milestones label : 3<sup>rd</sup> tier</p>
-                        <p>Milestones completed : 3</p>
+            <div className="row">
+                <div className="col-12 col-md-6">
+                    <div className={` px-2 ${userTheme ? "card-light" : "card-dark"}`}>
+                        <h4 className='text-center pt-3'>Milestones</h4>
+                        <div className='mt-4 mb-2 d-flex justify-content-around'>
+                            <div>
+                                <p>Milestones label : 3<sup>rd</sup> tier</p>
+                                <p>Milestones completed : 3</p>
+                            </div>
+                            <div>
+                                <p>Last Milestone : 12 days ago </p>
+                                <p>Medals : 6 medals </p>
+                            </div >
+                        </div>
                     </div>
-                    <div>
-                        <p>Last Milestone : 12 days ago </p>
-                        <p>Medals : 6 medals </p>
-                    </div >
+                </div>
+                <div className="col-12 col-md-6">
+                    <div className={` px-2 ${userTheme ? "card-light" : "card-dark"}`}>
+                        <h4 className='text-center pt-3'>Achievements</h4>
+                        <div className='d-flex pb-1 pb-5 pt-4 justify-content-center gap-3'>
+                            <GiAchievement color='gold' size={30} />
+                            <GiAchievement color='silver' size={30} />
+                            <GiAchievement color='blue' size={30} />
+                            <GiAchievement color='green' size={30} />
+                            <GiAchievement color='red' size={30} />
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div className="col-12 col-md-6">
-            <div className={` px-2 ${userTheme ? "card-light" : "card-dark"}`}>
-            <h4 className='text-center pt-3'>Achievements</h4>
-            <div className='d-flex pb-1 pb-5 pt-4 justify-content-center gap-3'>
-                    <GiAchievement color='gold' size={30} />
-                    <GiAchievement color='silver' size={30} />
-                    <GiAchievement color='blue' size={30} />
-                    <GiAchievement color='green' size={30} />
-                    <GiAchievement color='red' size={30} />
-                </div>
-            </div>
-            </div>
-           </div>
         </>
     )
 }

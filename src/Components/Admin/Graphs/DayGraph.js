@@ -63,7 +63,6 @@ const DayGraph = () => {
       .attr("class", "y-axis")
       .call(d3.axisLeft(yScale));
 
-    // Add labels and title if needed
 
     // Cleanup on unmount
     return () => {

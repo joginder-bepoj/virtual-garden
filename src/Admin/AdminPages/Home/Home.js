@@ -28,7 +28,7 @@ function Home() {
                     setData(res.data)
                 }
             } catch (err) {
-                
+                return;
             }
         })()
     }, [])
@@ -51,7 +51,7 @@ function Home() {
                 const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/getall`)
                 setUsersData(res.data)
             } catch (err) {
-                
+                return;
             }
         })()
     }, [])
@@ -64,7 +64,7 @@ function Home() {
                     setUserDetail(res.data.user)
                 }
             } catch (err) {
-                
+                return;
             }
         })()
     }, [userId])

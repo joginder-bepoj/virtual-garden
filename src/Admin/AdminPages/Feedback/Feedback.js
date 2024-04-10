@@ -6,7 +6,6 @@ import { Button, Modal } from "react-bootstrap";
 import { toast } from "sonner";
 import { UserStore } from "../../../Storage/UserStorage";
 
-
 function Feedback() {
   const { userTheme } = UserStore();
   const [userFeedback, setUserFeedback] = useState([]);
@@ -46,7 +45,7 @@ function Feedback() {
       setSelectedUser(id);
       setViewOneFeedback(res.data);
     } catch (error) {
-      ;
+      return;
     }
   };
 
@@ -59,7 +58,7 @@ function Feedback() {
         setUserFeedback(res.data);
         setInitalFeedback(res.data);
       } catch (err) {
-        ;
+        return;
       }
     })();
   }, [selectedUser]);
@@ -74,37 +73,31 @@ function Feedback() {
         handleClose();
       }
     } catch (error) {
-      ;
+      return;
     }
   };
 
   const handleActionQuery = async () => {
     try {
-      if(action === "" || reply === ""){
-        toast.error("hello")
-      }else{
-      await axios.put(
-        `${process.env.REACT_APP_BASE_URL}/api/feedback/update/${selectedUser}`,
-        {status: action , reply:reply}
-      );
-      toast.success("Query Status Updated");
-      setSelectedUser(null);
-      handleViewClose();
+      if (action === "" || reply === "") {
+        toast.error("hello");
+      } else {
+        await axios.put(
+          `${process.env.REACT_APP_BASE_URL}/api/feedback/update/${selectedUser}`,
+          { status: action, reply: reply }
+        );
+        toast.success("Query Status Updated");
+        setSelectedUser(null);
+        handleViewClose();
       }
-    } catch (error) {
-      ;
-    }
+    } catch (error) {return;}
   };
 
   return (
     <>
       <div className="row">
         <div className="col-12 col-md-3 mt-4">
-          <div
-            className={`${
-              userTheme ? "card": "card-dark"
-            } p-2 pt-3`}
-          >
+          <div className={`${userTheme ? "card" : "card-dark"} p-2 pt-3`}>
             <h3 className="text-center">Total Query </h3>
             <div className="d-flex gap-3 align-items-center justify-content-center">
               <div title="Active" className="status-total mb-2"></div>
@@ -113,11 +106,7 @@ function Feedback() {
           </div>
         </div>
         <div className="col-12 col-md-3 mt-4">
-          <div
-            className={`${
-              userTheme ? "card": "card-dark"
-            } p-2 pt-3`}
-          >
+          <div className={`${userTheme ? "card" : "card-dark"} p-2 pt-3`}>
             <h3 className="text-center">Active Query </h3>
             <div className="d-flex gap-3 align-items-center justify-content-center">
               <div title="Active" className="status-active mb-2"></div>
@@ -131,11 +120,7 @@ function Feedback() {
           </div>
         </div>
         <div className="col-12 col-md-3 mt-4 ">
-          <div
-            className={`${
-              userTheme ? "card-light": "card-dark"
-            } p-2 pt-3`}
-          >
+          <div className={`${userTheme ? "card-light" : "card-dark"} p-2 pt-3`}>
             <h3 className="text-center">Resolved Query </h3>
             <div className="d-flex gap-3 align-items-center justify-content-center">
               <div title="Active" className="status-resolve mb-2"></div>
@@ -149,18 +134,13 @@ function Feedback() {
           </div>
         </div>
         <div className="col-12 col-md-3 mt-4 ">
-          <div
-            className={`${
-              userTheme ? "card-light": "card-dark"
-            } p-2 pt-3`}
-          >
+          <div className={`${userTheme ? "card-light" : "card-dark"} p-2 pt-3`}>
             <h3 className="text-center">Rejected Query </h3>
             <div className="d-flex gap-3 align-items-center justify-content-center">
               <div title="Reject" className="status-reject mb-2"></div>
               <h1 className="text-center">
                 {
-                  initalfeedback.filter((item) => item.status === "reject")
-                    .length
+                  initalfeedback.filter((item) => item.status === "reject").length
                 }
               </h1>
             </div>
@@ -188,22 +168,21 @@ function Feedback() {
         </Modal.Header>
         <Modal.Body>
           <p>{viewOneFeedback?.query}</p>
-
-          <form style={{marginBottom:"1rem"}}>
+          <form style={{ marginBottom: "1rem" }}>
             <input
-              style={{width:"25vw"}} 
-              type="text" 
+              style={{ width: "25vw" }}
+              type="text"
               name="reply"
               placeholder="Reply"
               value={reply}
               onChange={(e) => setReply(e.target.value)}
-              />
+            />
           </form>
 
           <select
             onChange={(e) => setAction(e.target.value)}
             value={action}
-            style={{ border: "none", outline: "none", cursor: "pointer"}}
+            style={{ border: "none", outline: "none", cursor: "pointer" }}
           >
             <option value={""}>Please Select</option>
             <option value={"solve"}>Solve</option>
@@ -218,9 +197,7 @@ function Feedback() {
         </Modal.Footer>
       </Modal>
 
-      <div
-        className={`m-2  p-2 ${userTheme ? "card-light": "card-dark"} `}
-      >
+      <div className={`m-2  p-2 ${userTheme ? "card-light" : "card-dark"} `}>
         <div className="d-flex justify-content-between">
           <h3 className="text-center p-3">Feedback</h3>
           <div className="d-flex  m-3 gap-4">

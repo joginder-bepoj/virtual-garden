@@ -46,27 +46,27 @@ function Footer() {
                   </h3>
                   <ul className="ps-4 ps-md-3">
                     <li className="text-white">
-                      <a className="text-white" href="business-consultancy.html">
+                      <a className="text-white" href="#">
                         Lorem ipsum fdg{" "}
                       </a>
                     </li>
                     <li className="text-white">
-                      <a className="text-white" href="website-development.html">
+                      <a className="text-white" href="#">
                         Lorem ipsum
                       </a>
                     </li>
                     <li className="py-1 text-white">
-                      <a className="text-white" href="digital-marketing.html">
+                      <a className="text-white" href="#">
                         Lorem ipsum fdg
                       </a>
                     </li>
                     <li className="py-1 text-white">
-                      <a className="text-white" href="influencer-marketing.html">
+                      <a className="text-white" href="#">
                         Lorem ipsum{" "}
                       </a>
                     </li>
                     <li className="py-1 text-white">
-                      <a className="text-white" href="production.html">
+                      <a className="text-white" href="#">
                         {" "}
                         Lorem ipsum{" "}
                       </a>
@@ -108,7 +108,7 @@ function Footer() {
                   </p>
                   <div className="d-inline-block py-3 pb-md-0">
                     <a
-                      href="https://www.facebook.com/profile.php?id=61550245559154"
+                      href="https://www.facebook.com/"
                       target="_blank"
                     >
                       <svg
@@ -128,7 +128,7 @@ function Footer() {
                       </svg>
                     </a>
                     <a
-                      href="https://www.linkedin.com/company/99880813/admin/feed/posts/"
+                      href="https://www.linkedin.com/"
                       target="_blank"
                     >
                       <svg
@@ -145,7 +145,7 @@ function Footer() {
                       </svg>
                     </a>
                     <a
-                      href="https://instagram.com/coding_visuals?igshid=OGQ5ZDc2ODk2ZA=="
+                      href="https://instagram.com/"
                       target="_blank"
                     >
                       <svg

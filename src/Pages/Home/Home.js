@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   const { userTheme, leaderboard } = UserStore()
   const navigate = useNavigate()
+  let a = 10
   return (
     <>
       <div className="top-header">
@@ -50,7 +51,7 @@ function Home() {
                     </a>
                   </li>
                   <li className="mail d-inline-block">
-                    <a href="mailto:support@sagipl.com" className="text-white ps-2">
+                    <a href="mailto:demo@virtual-garden.com" className="text-white ps-2">
                       <svg
                         width={16}
                         height={15}

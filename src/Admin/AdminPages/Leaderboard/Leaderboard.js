@@ -19,7 +19,7 @@ function Leaderboard() {
                     setData(res.data)
                 }
             } catch (err) {
-                
+                return;
             }
         })()
     }, [])
@@ -30,8 +30,6 @@ function Leaderboard() {
         <>
 
             <div className='p-2'>
-
-               
                 <div className={`m-1 mx-0 ${userTheme ? "card-light" : "card-dark"} p-2`}>
                     <div className="d-flex justify-content-between">
                         <h3 className='text-center p-3'>Leaderboard</h3>

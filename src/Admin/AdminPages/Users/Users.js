@@ -37,7 +37,7 @@ function Users() {
                 handleDeactivateClose()
             }
         } catch (error) {
-            
+            return;
         }
     }
 
@@ -49,7 +49,7 @@ function Users() {
                 handleDeactivateClose()
             }
         } catch (error) {
-            ;
+            return;
         }
     }
 
@@ -88,7 +88,7 @@ function Users() {
                 setUsersData(res.data)
                 setIntialData(res.data)
             } catch (err) {
-                
+                return;
             }
         })()
     }, [selectedUser])

@@ -10,8 +10,7 @@ function Sidebar({ adminDarkTheme, shortSidebarToggle, openSidebarToggle }) {
     const { pathname } = useLocation()
 
     return (
-        <aside style={{
-            boxShadow: ` 5px 0 7px -3px rgba(${!adminDarkTheme ? "0, 0, 0, 0.35" : "255, 255, 255, 0.35"})`
+        <aside style={{ boxShadow: ` 5px 0 7px -3px rgba(${!adminDarkTheme ? "0, 0, 0, 0.35" : "255, 255, 255, 0.35"})`
         }} id="sidebar" className={`pt-3 ${!shortSidebarToggle && 'shortSideBaar'}  ${adminDarkTheme ? 'light-theme dark-scrollbar': 'dark-theme light-scrollbar'} ${openSidebarToggle ? "sidebar-responsive" : ""}`} >
           
             <ul className='sidebar-list  mt-md-0 pt-md-0 '>
