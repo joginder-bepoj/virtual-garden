@@ -2,10 +2,11 @@ import React from 'react';
 import { MdDelete, MdModeEditOutline } from 'react-icons/md';
 import { AiFillEye } from 'react-icons/ai';
 import './table.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const UserTable = ({ data, handleShow, handleDeactivateShow }) => {
+    const location = useLocation()
     return (
         <table className="responsive-table">
             <thead>
@@ -28,9 +29,10 @@ const UserTable = ({ data, handleShow, handleDeactivateShow }) => {
                             <td>{elm.number}</td>
                             <td>{elm.isUserDeactivated ? "Deactive": "Active" }</td>
                             <td className='d-flex align-items-center gap-2 justify-content-center'>
-                                <MdModeEditOutline color='#1797BB' size={25} onClick={()=>handleDeactivateShow(elm._id,elm.isUserDeactivated)} />
+                                {location.pathname !== "/admin" && <MdModeEditOutline color='#1797BB' size={25} onClick={()=>handleDeactivateShow(elm._id,elm.isUserDeactivated)} /> }
                                 <Link to={`/admin/user/${elm._id}`}><AiFillEye color='#47ad86' size={25} /></Link>
-                                <MdDelete color='#e36262' size={25} onClick={()=>handleShow(elm._id)} /></td>
+                                {location.pathname !== "/admin" &&  <MdDelete color='#e36262' size={25} onClick={()=>handleShow(elm._id)} />}
+                            </td>
                         </tr>
                     )
                 }

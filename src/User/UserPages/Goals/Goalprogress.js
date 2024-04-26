@@ -122,17 +122,39 @@ function Goalprogress() {
   }
 
 
+  const completeGoals = (e) =>{
+    e.preventDefault()
+    setIsLoading(true)
+    const options = {
+      method: 'PUT',
+      url: `${process.env.REACT_APP_BASE_URL}/api/garden/${gardenId}/goals/${id}/completed`,
+      headers: {
+        Accept: '*/*',
+        'Content-Type': 'application/json'
+      },
+      data: {completed: 'done'}
+    };
+    
+    axios.request(options).then(function (response) {
+      toast.success("Goal is completed successfully");
+      setIsLoadingRequired(prev => !prev)
+    }).catch(function (error) {
+      console.error(error);
+    }).finally(()=> setIsLoading(false));
+  }
 
   return (
     <>
       <h2 className="mt-5">Goal Progress</h2>
-      <div className="d-flex left-0 px-3">
+      <div className="d-flex left-0 px-3 justify-content-between">
         <h3>List of goal progress</h3>
+        {!goals?.isCompleted && <button className="btn btn-outline-success me-2" onClick={completeGoals}>Complete Goal</button>}
       </div>
       <div  className={`${userTheme ? 'card-light ' : 'card-dark'} p-3 rounded-3 m-3 row`}>
         <div className="d-flex align-items-start ps-2 flex-column col-md-10">
           <h5>Garden Name: {goals?.name}</h5>
-            <p><span className="fw-bold">Goal Des: </span>{goals?.description}</p>
+            <p className="mb-0"><span className="fw-bold">Goal Des: </span>{goals?.description}</p>
+            <p><span className="fw-bold">Goal completed: </span> {goals?.isCompleted ? "Completed": "Pending"} </p>
         </div>
         <div className="d-flex flex-column col-md-2 align-items-start">
           <p><span className="fw-bold">Goal type: </span>{goals?.goalType}</p>
@@ -215,8 +237,6 @@ function Goalprogress() {
           </Form>
         </Modal.Body>
       </Modal>
-
-
     </>
   );
 }

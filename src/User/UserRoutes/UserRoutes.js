@@ -11,6 +11,7 @@ import CreateGoal from '../UserPages/Goals/CreateGoal/CreateGoal'
 import MainGarden from '../UserPages/Gardens/MainGarden'
 import ViewGarden from '../UserPages/Gardens/ViewGarden'
 import Goalprogress from '../UserPages/Goals/Goalprogress'
+import Feedback from '../UserPages/feedback/Feedback'
 
 
 function UserRoutes() {
@@ -27,6 +28,7 @@ function UserRoutes() {
             <Route path='/profile' element={<Profile/>} />
             <Route path='/achievement' element={<Achievement/>} />
             <Route path='/viewgoal/:id' element={<Goalprogress/>} />
+            <Route path='/feedback' element={<Feedback />} />
         </Routes>
         </UserLayout>
     )

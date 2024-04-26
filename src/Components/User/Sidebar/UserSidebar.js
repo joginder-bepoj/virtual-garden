@@ -6,6 +6,7 @@ import { GoGoal } from 'react-icons/go'
 import { GiIsland } from 'react-icons/gi'
 import { LuTrophy } from 'react-icons/lu'
 import { useLocation } from 'react-router-dom'
+import { MdFeedback } from 'react-icons/md'
 
 function UserSidebar({ userTheme, shortSidebarToggle, openSidebarToggle }) {
 
@@ -49,6 +50,12 @@ function UserSidebar({ userTheme, shortSidebarToggle, openSidebarToggle }) {
                     <li style={{ marginRight: !shortSidebarToggle && "2px", fontSize: '14px' }} className={`${pathname === "/user/profile" && "sidebar-active"} ${shortSidebarToggle ? 'sidebar-list-item' : "sidebar-list-item-short"}`}>
                         <BsFillPersonLinesFill size={!shortSidebarToggle && 25} className='icon' />
                         {'Profile'}
+                    </li>
+                </Link>
+                <Link style={{ textDecoration: "none", color: "inherit" }} to="/user/feedback">
+                    <li style={{ marginRight: !shortSidebarToggle && "2px", fontSize: '14px' }} className={`${pathname === "/user/feedback" && "sidebar-active"} ${shortSidebarToggle ? 'sidebar-list-item' : "sidebar-list-item-short"}`}>    
+                        <MdFeedback size={!shortSidebarToggle && 25} className='icon' />
+                        {"Feedback"}
                     </li>
                 </Link>
             </ul>

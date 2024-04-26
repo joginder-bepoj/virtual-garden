@@ -3,14 +3,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
-const PieChart = ({ heading }) => {
+const PieChart = ({ heading, data }) => {
   const svgRef = useRef();
-  const data = [
-    { name: "Week 1", value: 52, color: "#37E5D4" },
-    { name: "Week 2", value: 30, color: "#00CADC" },
-    { name: "Week 3", value: 42, color: "#00ADDD" },
-    { name: "Week 4", value: 65, color: "#008ED4" },
-  ];
 
   useEffect(() => {
     const margin = { top: 20, right: 20, bottom: 70, left: 40 };
@@ -77,10 +71,10 @@ const PieChart = ({ heading }) => {
       .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
       .attr("dy", "0.25em")
       .attr("dx", "-1em")
-      .attr("font-size", "18px")
+      .attr("font-size", "24px")
       .attr("style", "fill:#03a5fc ")
       .attr("text-anchor", "middle")
-      .text(d => `${d.data.value}%`);
+      .text(d => `${d.data.value}`);
 
     // Add labels for each data point inside the pie chart
     svg.append("g")

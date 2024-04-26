@@ -91,7 +91,7 @@ function UserStorage({ children }) {
 
       }
     })()
-  }, [userId, totalCompletedMilestones])
+  }, [userId, totalCompletedMilestones, navigate])
 
 
   useEffect(() => {

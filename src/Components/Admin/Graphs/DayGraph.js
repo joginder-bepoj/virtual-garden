@@ -2,17 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const DayGraph = () => {
-  const data = [
-    { category: "day 1",  value: 354,color:'#00CADC' },
-    { category: "day 2",  value: 543, color:'#00CADC'},
-    { category: "day 3",  value: 354,color:'#00CADC' },
-    { category: "day 4",  value: 645, color:'#00CADC'},
-    { category: "day 5",  value: 352,color:'#00CADC' },
-    { category: "day 6",  value: 786,color:'#00CADC' },
-    { category: "day 7",  value: 243,color:'#00CADC' },
-
-  ]; 
+const DayGraph = ({data}) => {
   const svgRef = useRef();
 
   useEffect(() => {
@@ -26,7 +16,7 @@ const DayGraph = () => {
     // Create scales for x and y
     const xScale = d3
       .scaleBand()
-      .domain(data.map((d) => d.category))
+      .domain(data.map((d) => d.date))
       .range([0, width])
       .padding(0.1);
 
@@ -46,11 +36,11 @@ const DayGraph = () => {
       .data(data)
       .enter()
       .append("rect")
-      .attr("x", (d) => xScale(d.category))
+      .attr("x", (d) => xScale(d.date))
       .attr("y", (d) => yScale(d.value))
       .attr("width", xScale.bandwidth())
       .attr("height", (d) => height - yScale(d.value))
-      .attr("fill", (d) => d.color);
+      .attr("fill", (d) => '#00CADC');
 
     // Create x-axis
     g.append("g")

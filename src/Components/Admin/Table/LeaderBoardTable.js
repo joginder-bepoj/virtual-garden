@@ -26,7 +26,7 @@ const LeaderBoardTable = ({ data }) => {
                             <td>{elm?.garden?.length}</td>
                             <td><img height={25} src={ind < 3 ? Gold : ind >=3 && ind < 6 ? Silver : Bronze} alt='medals' /></td>
                         </tr>
-                    ) : <p>Loading...</p>
+                    ) : <tr><td><span>Loading...</span></td></tr>
                 }
             </tbody>
 
